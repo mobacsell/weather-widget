@@ -1,13 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styles from "./App.module.css";
+import { DateInfo } from "./components/DateInfo";
+import { DateList } from "./components/DateList";
 
-function App() {
+export function App() {
   return (
-    <div className="root">
-      
+    <div className={styles.root}>
+      <div className={styles.wrapper}>
+        <DateInfo />
+        <DateList />
+      </div>
     </div>
   );
 }
-
-export default App;

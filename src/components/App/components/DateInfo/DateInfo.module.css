@@ -1,0 +1,7 @@
+.root {
+  width: 260px;
+  height: 350px;
+  background: linear-gradient(120deg, #6bdf60, #d2ffb4);
+  border-radius: 16px;
+  box-shadow: -8px 0px 20px 5px #75757566;
+}

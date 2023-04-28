@@ -41,5 +41,5 @@ export function useApiData() {
     getWheatherData();
   }, [coords.lat, coords.lon]);
 
-  return {wheatherData, isResponse}
+  return { wheatherData, isResponse };
 }

@@ -1,0 +1,24 @@
+.root {
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+  width: 70px;
+  height: 170px;
+  background-color: #f3ecec66;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s background-color;
+}
+
+.root:hover {
+  background-color: #f3ececaa;
+}
+
+.weekday,
+.temperature {
+  font-size: 18px;
+  font-weight: bold;
+}

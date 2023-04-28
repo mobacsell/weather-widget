@@ -5,6 +5,7 @@ import { DataType } from "./types";
 export function useApiData() {
   const [coords, setCoords] = useState({ lat: 56.1324, lon: 47.2025 });
   const [wheatherData, setWeatherData] = useState<DataType[]>([]);
+  const [loader, setLoader] = useState<boolean>(true);
   const [isResponse, setIsResponse] = useState<boolean>(true);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export function useApiData() {
                 id: index,
                 timeStamp: value.dt,
                 temp: value.main.temp,
-                windSpeed: value.wind.speed,
+                windSpeed: value.main.windSpeed,
                 humidity: value.main.humidity,
                 weatherStatus: value.weather[0].main,
                 icon: value.weather[0].icon,
@@ -28,6 +29,7 @@ export function useApiData() {
             }
           );
           setWeatherData(result);
+          setLoader(false);
         });
       } catch {
         setIsResponse(false);
@@ -36,5 +38,5 @@ export function useApiData() {
     getWheatherData();
   }, [coords.lat, coords.lon]);
 
-  return { wheatherData, isResponse };
+  return { wheatherData, loader, isResponse };
 }

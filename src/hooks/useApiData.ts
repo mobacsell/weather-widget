@@ -1,9 +1,8 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { DataType } from "./types";
 
 export function useApiData() {
-  const [coords, setCoords] = useState({ lat: 56.1324, lon: 47.2025 });
+  const [coords] = useState({ lat: 56.1324, lon: 47.2025 });
   const [wheatherData, setWeatherData] = useState<DataType[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
   const [isResponse, setIsResponse] = useState<boolean>(true);

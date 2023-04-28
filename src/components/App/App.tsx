@@ -6,13 +6,8 @@ import { useApiData } from "../../hooks/useApiData";
 import { Loader } from "./components/Loader";
 
 export function App() {
-  const {
-    wheatherData,
-    loader,
-    onCurrentCardClick,
-    currentCardId,
-    isResponse,
-  } = useApiData();
+  const { wheatherData, loader, onCurrentCardClick, currentCardId } =
+    useApiData();
 
   if (loader) {
     return <Loader />;

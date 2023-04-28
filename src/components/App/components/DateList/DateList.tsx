@@ -3,7 +3,7 @@ import styles from "./DateList.module.css";
 import { DateCard } from "./components/DateCard";
 import { PropsDateList } from "./types";
 import { MoreInfo } from "./components/MoreInfo";
-import { useState } from "react";
+
 
 export function DateList(props: PropsDateList) {
   const { data, currentCardId, onCurrentCardClick } = props;

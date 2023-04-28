@@ -3,22 +3,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
   align-items: center;
-  width: 70px;
-  height: 170px;
+  flex: 1;
+  height: 120px;
   background-color: #f3ecec66;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s background-color;
+  transition: 0.2s background-color, transform;
+  transform: scale(1.01);
 }
 
 .root:hover {
-  background-color: #f3ececaa;
+  background-color: #f3ececbb;
+  transform: scale(1.1);
 }
 
 .weekday,
 .temperature {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }

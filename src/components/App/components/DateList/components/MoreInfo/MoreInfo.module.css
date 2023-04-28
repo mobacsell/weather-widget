@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 4px;
+  width: 500px;
+  height: 70px;
+  background-color: #f3ecec66;
+  border-radius: 8px;
+  padding: 0 20px;
+}
+
+.headers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+}

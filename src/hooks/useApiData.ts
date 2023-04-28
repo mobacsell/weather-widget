@@ -14,16 +14,19 @@ export function useApiData() {
           `https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&cnt=8&units=metric&appid=6b5f6866aee48a58db488348846a7e1f`
         );
         response.json().then((data) => {
-          const result = data.list.map((value: any): DataType => {
-            return {
-              timeStamp: value.dt,
-              temp: value.main.temp,
-              windSpeed: value.wind.speed,
-              humidity: value.main.humidity,
-              weatherStatus: value.weather[0].main,
-              icon: value.weather[0].icon,
-            };
-          });
+          const result = data.list.map(
+            (value: any, index: number): DataType => {
+              return {
+                id: index,
+                timeStamp: value.dt,
+                temp: value.main.temp,
+                windSpeed: value.wind.speed,
+                humidity: value.main.humidity,
+                weatherStatus: value.weather[0].main,
+                icon: value.weather[0].icon,
+              };
+            }
+          );
           setWeatherData(result);
         });
       } catch {

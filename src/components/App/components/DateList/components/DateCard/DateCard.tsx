@@ -4,11 +4,11 @@ import { DateCardProps } from "./types";
 import { formatTimestamp } from "./utils";
 
 export function DateCard(props: DateCardProps) {
-  const { icon, timestamp, temperature } = props;
+  const { cardId, icon, timestamp, temperature, onCurrentCardClick } = props;
   const { weekday, time } = formatTimestamp(timestamp);
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} onClick={(e) => onCurrentCardClick(cardId)}>
       <img
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
         alt="wheather icon"

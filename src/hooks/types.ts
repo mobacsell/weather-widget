@@ -1,4 +1,5 @@
 export interface DataType {
+  id: number;
   timeStamp: number;
   temp: number;
   windSpeed: number;

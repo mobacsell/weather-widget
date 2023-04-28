@@ -13,8 +13,6 @@ export function DateList(props: PropsDateList) {
     setCurrentCardId(id);
   };
 
-  console.log(currentCardId);
-
   return (
     <div className={styles.root}>
       <MoreInfo

@@ -1,5 +1,7 @@
 .root {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #3b3b3b;
   display: flex;
   flex-direction: column;
   justify-content: center;

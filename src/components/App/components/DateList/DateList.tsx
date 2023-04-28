@@ -6,12 +6,7 @@ import { MoreInfo } from "./components/MoreInfo";
 import { useState } from "react";
 
 export function DateList(props: PropsDateList) {
-  const { data } = props;
-  const [currentCardId, setCurrentCardId] = useState(0);
-
-  const onCurrentCardClick = (id: number) => {
-    setCurrentCardId(id);
-  };
+  const { data, currentCardId, onCurrentCardClick } = props;
 
   return (
     <div className={styles.root}>

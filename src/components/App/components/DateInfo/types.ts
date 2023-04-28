@@ -1,7 +1,6 @@
 import { DataType } from "../../../../hooks/types";
 
-export interface PropsDateList {
+export interface PropsDateInfo {
   data: DataType[];
   currentCardId: number;
-  onCurrentCardClick: (id: number) => void;
 }

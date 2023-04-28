@@ -7,6 +7,11 @@ export function useApiData() {
   const [wheatherData, setWeatherData] = useState<DataType[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
   const [isResponse, setIsResponse] = useState<boolean>(true);
+  const [currentCardId, setCurrentCardId] = useState(0);
+
+  const onCurrentCardClick = (id: number) => {
+    setCurrentCardId(id);
+  };
 
   useEffect(() => {
     const getWheatherData = async () => {
@@ -21,7 +26,7 @@ export function useApiData() {
                 id: index,
                 timeStamp: value.dt,
                 temp: value.main.temp,
-                windSpeed: value.main.windSpeed,
+                windSpeed: value.wind.speed,
                 humidity: value.main.humidity,
                 weatherStatus: value.weather[0].main,
                 icon: value.weather[0].icon,
@@ -38,5 +43,11 @@ export function useApiData() {
     getWheatherData();
   }, [coords.lat, coords.lon]);
 
-  return { wheatherData, loader, isResponse };
+  return {
+    wheatherData,
+    loader,
+    onCurrentCardClick,
+    currentCardId,
+    isResponse,
+  };
 }

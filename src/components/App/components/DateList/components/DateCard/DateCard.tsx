@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./DateCard.module.css";
 import { DateCardProps } from "./types";
-import { formatTimestamp } from "./utils";
+import { formatTimestamp } from "../../../../../../utils/utils";
 
 export function DateCard(props: DateCardProps) {
   const { cardId, icon, timestamp, temperature, onCurrentCardClick } = props;

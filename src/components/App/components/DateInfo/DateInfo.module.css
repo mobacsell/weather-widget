@@ -1,7 +1,39 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Caveat", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #f1eded;
+  box-sizing: border-box;
   width: 260px;
   height: 350px;
-  background: linear-gradient(120deg, #6bdf60, #d2ffb4);
+  background: linear-gradient(120deg, #6377d3, #efffb4);
   border-radius: 16px;
   box-shadow: -8px 0px 20px 5px #75757566;
+  padding: 30px;
+  opacity: 90%;
+}
+
+.weekday {
+  font-size: 48px;
+  line-height: 48px;
+}
+
+.time {
+  font-size: 24px;
+}
+
+.temperature {
+  font-size: 48px;
+  line-height: 48px;
+}
+
+.icon {
+  display: block;
+  margin: 10px 40px;
+}
+
+.status {
+  font-size: 24px;
 }

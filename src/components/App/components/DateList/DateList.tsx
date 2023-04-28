@@ -1,19 +1,7 @@
 import React from "react";
 import styles from "./DateList.module.css";
 import { DateCard } from "./components/DateCard";
-
-interface DataType {
-  timeStamp: number;
-  temp: number;
-  windSpeed: number;
-  humidity: number;
-  weatherStatus: string;
-  icon: string;
-}
-
-interface PropsDateList {
-  data: DataType[];
-}
+import { PropsDateList } from "./types";
 
 export function DateList(props: PropsDateList) {
   const { data } = props;

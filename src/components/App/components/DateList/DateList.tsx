@@ -18,7 +18,7 @@ export function DateList(props: PropsDateList) {
         {data.map((value) => {
           return (
             <DateCard
-              cardId={value.id}
+              cardId={value.timeId}
               icon={value.icon}
               timestamp={value.timeStamp}
               temperature={value.temp}

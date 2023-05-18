@@ -1,7 +1,7 @@
-import { DataType } from "../../../../hooks/types";
+import { ItemDataTime } from "../../../../hooks/types";
 
 export interface PropsDateList {
-  data: DataType[];
+  data: ItemDataTime[];
   currentCardId: number;
   onCurrentCardClick: (id: number) => void;
 }

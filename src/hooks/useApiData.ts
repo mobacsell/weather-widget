@@ -1,52 +1,53 @@
 import { useState, useEffect } from "react";
-import { DataType } from "./types";
+import { ItemFilterData } from "./types";
 
 export function useApiData() {
   const [coords] = useState({ lat: 56.1324, lon: 47.2025 });
-  const [wheatherData, setWeatherData] = useState<DataType[]>([]);
+  const [weatherData, setWeatherData] = useState<ItemFilterData[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
-  const [isResponse, setIsResponse] = useState<boolean>(true);
-  const [currentCardId, setCurrentCardId] = useState(0);
-
-  const onCurrentCardClick = (id: number) => {
-    setCurrentCardId(id);
-  };
 
   useEffect(() => {
     const getWheatherData = async () => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&cnt=8&units=metric&appid=6b5f6866aee48a58db488348846a7e1f`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&units=metric&lang=ru&appid=6b5f6866aee48a58db488348846a7e1f`
         );
-        response.json().then((data) => {
-          const result = data.list.map(
-            (value: any, index: number): DataType => {
-              return {
-                id: index,
-                timeStamp: value.dt,
-                temp: value.main.temp,
-                windSpeed: value.wind.speed,
-                humidity: value.main.humidity,
-                weatherStatus: value.weather[0].main,
-                icon: value.weather[0].icon,
-              };
+        const data = await response.json();
+        const filterData: ItemFilterData[] = [];
+        data.list.reduce(
+          (memoIndex: number, value: any, index: number): number => {
+            const currentDate = new Date(value.dt * 1000).getDate();
+
+            if (currentDate !== memoIndex) {
+              filterData.push({
+                dateId: filterData.length,
+                dateOfMonth: currentDate,
+                dateData: [],
+              });
             }
-          );
-          setWeatherData(result);
-          setLoader(false);
-        });
-      } catch {
-        setIsResponse(false);
-      }
+            filterData[filterData.length - 1].dateData.push({
+              timeId: index,
+              timeStamp: value.dt,
+              temp: value.main.temp,
+              windSpeed: value.wind.speed,
+              humidity: value.main.humidity,
+              weatherStatus: value.weather[0].description,
+              icon: value.weather[0].icon,
+              pressure: value.main.pressure,
+            });
+            return currentDate;
+          },
+          0
+        );
+        setWeatherData(filterData);
+        setLoader(false);
+      } catch {}
     };
     getWheatherData();
   }, [coords.lat, coords.lon]);
 
   return {
-    wheatherData,
+    weatherData,
     loader,
-    onCurrentCardClick,
-    currentCardId,
-    isResponse,
   };
 }

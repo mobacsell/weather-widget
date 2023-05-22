@@ -4,11 +4,7 @@ import { formatDay } from "../../../../../../utils/utils";
 
 export function Tab({ data, currentTabId, handlerTabClick }: TabProps) {
   return (
-    <li
-      onClick={() => {
-        handlerTabClick(data.id);
-      }}
-    >
+    <li>
       <input
         type="radio"
         className={styles.input}
@@ -16,6 +12,9 @@ export function Tab({ data, currentTabId, handlerTabClick }: TabProps) {
         name="weekday"
         id={`weekday_${data.id}`}
         checked={data.id === currentTabId ? true : false}
+        onChange={() => {
+          handlerTabClick(data.id);
+        }}
       />
       <label className={styles.label} htmlFor={`weekday_${data.id}`}>
         <span className={styles.span}>{formatDay(data.day)}</span>

@@ -1,27 +1,37 @@
-.root {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #3b3b3b;
+.label {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #054b74e7;
   align-items: center;
-  flex: 1;
-  height: 120px;
+  padding: 8px 0;
   background-color: #f3ecec66;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.2s background-color, transform;
-  transform: scale(1.01);
+  transition: 0.3s transform;
 }
 
-.root:hover {
-  background-color: #f3ececbb;
-  transform: scale(1.1);
+.input:checked + .label {
+  color: #b43a3a;
+  background-color: #e7e3e3;
+  transform: scale(1.15);
+  transition: 0.3s transform;
 }
 
-.weekday,
+.label:hover {
+  background-color: #e7e3e3dd;
+  transition: 0.3s background-color;
+}
+
 .temperature {
-  font-size: 16px;
   font-weight: bold;
+}
+
+.input {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  margin: 0;
 }

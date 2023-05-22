@@ -1,7 +1,10 @@
 export interface DateCardProps {
-  cardId: number;
-  icon: string;
-  timestamp: number;
-  temperature: number;
-  onCurrentCardClick: (id: number) => void;
+  data: {
+    id: number;
+    icon: string;
+    timestamp: number;
+    temperature: number;
+  };
+  currentCardId: number;
+  handlerCardClick: (id: number) => void;
 }

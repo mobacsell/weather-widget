@@ -26,7 +26,7 @@ export function useApiData() {
               });
             }
             filterData[filterData.length - 1].dateData.push({
-              timeId: index,
+              timeId: filterData[filterData.length - 1].dateData.length,
               timeStamp: value.dt,
               temp: value.main.temp,
               windSpeed: value.wind.speed,

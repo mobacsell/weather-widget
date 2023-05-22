@@ -11,12 +11,13 @@ export function App() {
   const [currentTabId, setCurrentTabId] = useState<number>(0);
   const [currentCardId, setCurrentCardId] = useState<number>(0);
 
-  const onCurrentCardClick = (id: number) => {
+  const handlerCardClick = (id: number) => {
     setCurrentCardId(id);
   };
 
   const handlerTabClick = (id: number) => {
     setCurrentTabId(id);
+    setCurrentCardId(0);
   };
 
   if (loader) {
@@ -32,7 +33,7 @@ export function App() {
         />
         <DateList
           weatherData={weatherData}
-          onCurrentCardClick={onCurrentCardClick}
+          handlerCardClick={handlerCardClick}
           currentCardId={currentCardId}
           handlerTabClick={handlerTabClick}
           currentTabId={currentTabId}

@@ -8,10 +8,10 @@ import { Tab } from "./components/Tab";
 export function DateList(props: PropsDateList) {
   const {
     weatherData,
-    handlerTabClick,
     currentTabId,
+    handlerTabClick,
     currentCardId,
-    onCurrentCardClick,
+    handlerCardClick,
   } = props;
 
   return (
@@ -28,19 +28,23 @@ export function DateList(props: PropsDateList) {
           );
         })}
       </ul>
-      <div className={styles.cardsList}>
-        {weatherData[1].dateData.map((value) => {
+      <ul className={styles.cardsList}>
+        {weatherData[currentTabId].dateData.map((value, index) => {
           return (
             <DateCard
-              cardId={value.timeId}
-              icon={value.icon}
-              timestamp={value.timeStamp}
-              temperature={value.temp}
-              onCurrentCardClick={onCurrentCardClick}
+              data={{
+                id: value.timeId,
+                icon: value.icon,
+                timestamp: value.timeStamp,
+                temperature: value.temp,
+              }}
+              currentCardId={currentCardId}
+              handlerCardClick={handlerCardClick}
+              key={`${index}_dateCard`}
             />
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 }

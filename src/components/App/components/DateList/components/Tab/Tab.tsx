@@ -14,10 +14,10 @@ export function Tab({ data, currentTabId, handlerTabClick }: TabProps) {
         className={styles.input}
         value={data.id}
         name="weekday"
-        id={`${data.id}`}
+        id={`weekday_${data.id}`}
         checked={data.id === currentTabId ? true : false}
       />
-      <label className={styles.label} htmlFor={`${data.id}`}>
+      <label className={styles.label} htmlFor={`weekday_${data.id}`}>
         <span className={styles.span}>{formatDay(data.day)}</span>
       </label>
     </li>

@@ -1,24 +1,34 @@
-import React from "react";
 import styles from "./DateCard.module.css";
 import { DateCardProps } from "./types";
-import { formatDay, formatTimestamp } from "../../../../../../utils/utils";
+import { formatTimestamp } from "../../../../../../utils/utils";
 
-export function DateCard(props: DateCardProps) {
-  const { cardId, icon, timestamp, temperature, onCurrentCardClick } = props;
-  
-  const weekday = formatDay(0);
-  const time = formatTimestamp(timestamp);
-
+export function DateCard({
+  data,
+  currentCardId,
+  handlerCardClick,
+}: DateCardProps) {
   return (
-    <div className={styles.root} onClick={(e) => onCurrentCardClick(cardId)}>
-      <img
-        src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-        alt="wheather icon"
-        width="50"
+    <li>
+      <input
+        type="radio"
+        className={styles.input}
+        value={data.id}
+        name="time"
+        id={`time_${data.id}`}
+        checked={data.id === currentCardId ? true : false}
+        onChange={() => handlerCardClick(data.id)}
       />
-      <div className={styles.weekday}>{weekday}</div>
-      <div className={styles.time}>{time}</div>
-      <div className={styles.temperature}>{Math.round(temperature)}°C</div>
-    </div>
+      <label className={styles.label} htmlFor={`time_${data.id}`}>
+        <img
+          src={`https://openweathermap.org/img/wn/${data.icon}@2x.png`}
+          alt="wheather icon"
+          width="50"
+        />
+        <span>{formatTimestamp(data.timestamp)}</span>
+        <span className={styles.temperature}>
+          {Math.round(data.temperature)}°C
+        </span>
+      </label>
+    </li>
   );
 }

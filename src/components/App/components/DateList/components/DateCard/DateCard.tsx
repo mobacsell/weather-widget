@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "./DateCard.module.css";
 import { DateCardProps } from "./types";
-import { formatTimestamp } from "../../../../../../utils/utils";
+import { formatDay, formatTimestamp } from "../../../../../../utils/utils";
 
 export function DateCard(props: DateCardProps) {
   const { cardId, icon, timestamp, temperature, onCurrentCardClick } = props;
-  const { weekday, time } = formatTimestamp(timestamp);
+  
+  const weekday = formatDay(0);
+  const time = formatTimestamp(timestamp);
 
   return (
     <div className={styles.root} onClick={(e) => onCurrentCardClick(cardId)}>

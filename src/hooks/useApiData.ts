@@ -16,12 +16,12 @@ export function useApiData() {
         const filterData: ItemFilterData[] = [];
         data.list.reduce(
           (memoIndex: number, value: any, index: number): number => {
-            const currentDate = new Date(value.dt * 1000).getDate();
+            const currentDay = new Date(value.dt * 1000).getDay();
 
-            if (currentDate !== memoIndex) {
+            if (currentDay !== memoIndex) {
               filterData.push({
                 dateId: filterData.length,
-                dateOfMonth: currentDate,
+                dayOfMonth: currentDay,
                 dateData: [],
               });
             }
@@ -35,7 +35,7 @@ export function useApiData() {
               icon: value.weather[0].icon,
               pressure: value.main.pressure,
             });
-            return currentDate;
+            return currentDay;
           },
           0
         );

@@ -14,7 +14,7 @@ export function DateList(props: PropsDateList) {
       <ul className={styles.tabsList}>
       {weatherData.map((value, index) => {
           return (
-            <Tab data={{id:value.dateId, date:value.dateOfMonth}} key={`${index}_tab}`} />
+            <Tab data={{id:value.dateId, day:value.dayOfMonth}} key={`${index}_tab}`} />
           );
         })}
       </ul>

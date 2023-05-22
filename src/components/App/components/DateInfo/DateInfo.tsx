@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./DateInfo.module.css";
 import { PropsDateInfo } from "./types";
-import { formatTimestamp } from "../../../../utils/utils";
+import { formatDay, formatTimestamp } from "../../../../utils/utils";
 
 export function DateInfo(props: PropsDateInfo) {
   const { data, currentCardId } = props;
-  const { weekday, time } = formatTimestamp(data[currentCardId].timeStamp);
+  const weekday = formatDay(0);
+  const time = formatTimestamp(data[currentCardId].timeStamp);
 
   return (
     <div className={styles.root}>

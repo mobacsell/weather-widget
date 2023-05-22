@@ -1,6 +1,6 @@
 export interface ItemFilterData {
   dateId: number;
-  dateOfMonth: number;
+  dayOfMonth: number;
   dateData: ItemDataTime[];
 }
 

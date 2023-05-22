@@ -3,4 +3,6 @@ export interface TabProps {
     id: number;
     day: number;
   };
+  currentTabId: number;
+  handlerTabClick: (id: number) => void;
 }

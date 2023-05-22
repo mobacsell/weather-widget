@@ -5,16 +5,26 @@ import { PropsDateList } from "./types";
 import { MoreInfo } from "./components/MoreInfo";
 import { Tab } from "./components/Tab";
 
-
 export function DateList(props: PropsDateList) {
-  const { weatherData, currentCardId, onCurrentCardClick } = props;
+  const {
+    weatherData,
+    handlerTabClick,
+    currentTabId,
+    currentCardId,
+    onCurrentCardClick,
+  } = props;
 
   return (
     <div className={styles.root}>
       <ul className={styles.tabsList}>
-      {weatherData.map((value, index) => {
+        {weatherData.map((value, index) => {
           return (
-            <Tab data={{id:value.dateId, day:value.dayOfMonth}} key={`${index}_tab}`} />
+            <Tab
+              data={{ id: value.dateId, day: value.dayOfMonth }}
+              handlerTabClick={handlerTabClick}
+              currentTabId={currentTabId}
+              key={`${index}_tab}`}
+            />
           );
         })}
       </ul>

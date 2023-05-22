@@ -8,10 +8,15 @@ import { Loader } from "./components/Loader";
 export function App() {
   const { weatherData, loader } = useApiData();
 
+  const [currentTabId, setCurrentTabId] = useState<number>(0);
   const [currentCardId, setCurrentCardId] = useState<number>(0);
 
   const onCurrentCardClick = (id: number) => {
     setCurrentCardId(id);
+  };
+
+  const handlerTabClick = (id: number) => {
+    setCurrentTabId(id);
   };
 
   if (loader) {
@@ -21,11 +26,16 @@ export function App() {
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
-        <DateInfo data={weatherData[1].dateData} currentCardId={currentCardId} />
-        <DateList
+        <DateInfo
           data={weatherData[1].dateData}
+          currentCardId={currentCardId}
+        />
+        <DateList
+          weatherData={weatherData}
           onCurrentCardClick={onCurrentCardClick}
           currentCardId={currentCardId}
+          handlerTabClick={handlerTabClick}
+          currentTabId={currentTabId}
         />
       </div>
     </div>

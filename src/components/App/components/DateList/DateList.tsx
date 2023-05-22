@@ -3,19 +3,23 @@ import styles from "./DateList.module.css";
 import { DateCard } from "./components/DateCard";
 import { PropsDateList } from "./types";
 import { MoreInfo } from "./components/MoreInfo";
+import { Tab } from "./components/Tab";
 
 
 export function DateList(props: PropsDateList) {
-  const { data, currentCardId, onCurrentCardClick } = props;
+  const { weatherData, currentCardId, onCurrentCardClick } = props;
 
   return (
     <div className={styles.root}>
-      <MoreInfo
-        humidity={data[currentCardId].humidity}
-        windSpeed={data[currentCardId].windSpeed}
-      />
-      <div className={styles.wrapper}>
-        {data.map((value) => {
+      <ul className={styles.tabsList}>
+      {weatherData.map((value, index) => {
+          return (
+            <Tab data={{id:value.dateId, date:value.dateOfMonth}} key={`${index}_tab}`} />
+          );
+        })}
+      </ul>
+      <div className={styles.cardsList}>
+        {weatherData[1].dateData.map((value) => {
           return (
             <DateCard
               cardId={value.timeId}

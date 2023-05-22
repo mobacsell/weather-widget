@@ -1,7 +1,9 @@
-import { ItemDataTime } from "../../../../hooks/types";
+import { ItemFilterData } from "../../../../hooks/types";
 
 export interface PropsDateList {
-  data: ItemDataTime[];
+  weatherData: ItemFilterData[];
   currentCardId: number;
   onCurrentCardClick: (id: number) => void;
+  currentTabId: number;
+  handlerTabClick: (id: number) => void;
 }

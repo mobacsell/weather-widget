@@ -9,7 +9,7 @@
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #f3ececdd;
+  color: #f3ececff;
   cursor: pointer;
   transition: 0.3s background-color;
 }
@@ -18,6 +18,11 @@
   background-color: #7d96a166;
   color: #b43a3a;
   font-weight: 700;
+}
+
+.input:checked + .label > .span {
+  background-color: #e7e3e3dd;
+  transition: 0.3s background-color;
 }
 
 .label:hover {

@@ -4,15 +4,17 @@ import { DateCard } from "./components/DateCard";
 import { PropsDateList } from "./types";
 import { MoreInfo } from "./components/MoreInfo";
 import { Tab } from "./components/Tab";
+import { CityLocation } from "./components/CityLocation";
 
-export function DateList(props: PropsDateList) {
-  const {
-    weatherData,
-    currentTabId,
-    handlerTabClick,
-    currentCardId,
-    handlerCardClick,
-  } = props;
+export function DateList({
+  weatherData,
+  serviceData,
+  handlerTabClick,
+  handlerCardClick,
+  handlerChangeCity,
+}: PropsDateList) {
+  const { currentCityId, currentTabId, currentCardId } = serviceData;
+  const currentDateDataList = weatherData[serviceData.currentTabId].dateData;
 
   return (
     <div className={styles.root}>
@@ -29,7 +31,7 @@ export function DateList(props: PropsDateList) {
         })}
       </ul>
       <ul className={styles.cardsList}>
-        {weatherData[currentTabId].dateData.map((value, index) => {
+        {currentDateDataList.map((value, index) => {
           return (
             <DateCard
               data={{
@@ -45,6 +47,10 @@ export function DateList(props: PropsDateList) {
           );
         })}
       </ul>
+      <CityLocation
+        handlerChangeCity={handlerChangeCity}
+        currentCityId={currentCityId}
+      />
     </div>
   );
 }

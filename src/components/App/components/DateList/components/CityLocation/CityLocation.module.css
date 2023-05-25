@@ -1,0 +1,20 @@
+.select {
+  width: 416px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 16px;
+  outline: none;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  background: linear-gradient(to right, #c445ae, #00b6be);
+  color: #e7e7e7;
+  padding: 6px 10px;
+  appearance: none;
+}
+
+.option {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  color: #585858;
+}
+

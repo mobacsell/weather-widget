@@ -1,18 +1,27 @@
 import { useState, useEffect } from "react";
 import { ItemFilterData } from "./types";
 import { formatFilterData } from "../utils/utils";
+import cities from "../cities.json";
 
 export function useApiData() {
-  const [coords] = useState({ lat: 56.1324, lon: 47.2025 });
+  const [currentCityId, setCurrentCityId] = useState<number>(0);
   const [weatherData, setWeatherData] = useState<ItemFilterData[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+
+  const lat = cities[currentCityId].coords.lat;
+  const lon = cities[currentCityId].coords.lon;
+
+  function handlerChangeCity(cityId: number) {
+    setLoader(true);
+    setCurrentCityId(cityId);
+  }
 
   useEffect(() => {
     const getWheatherData = async () => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&units=metric&lang=ru&appid=6b5f6866aee48a58db488348846a7e1f`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=6b5f6866aee48a58db488348846a7e1f`
         );
         const data = await response.json();
         const filterData: ItemFilterData[] = [];
@@ -47,11 +56,13 @@ export function useApiData() {
       }
     };
     getWheatherData();
-  }, [coords.lat, coords.lon]);
+  }, [lat, lon]);
 
   return {
     weatherData,
     loader,
     error,
+    handlerChangeCity,
+    currentCityId,
   };
 }

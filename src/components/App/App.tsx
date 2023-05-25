@@ -7,10 +7,11 @@ import { Loader } from "./components/Loader";
 import { Error } from "./components/Error";
 
 export function App() {
-  const { weatherData, loader, error } = useApiData();
-
   const [currentTabId, setCurrentTabId] = useState<number>(0);
   const [currentCardId, setCurrentCardId] = useState<number>(0);
+
+  const { weatherData, loader, error, handlerChangeCity, currentCityId } =
+    useApiData();
 
   const handlerCardClick = (id: number) => {
     setCurrentCardId(id);
@@ -36,10 +37,10 @@ export function App() {
         />
         <DateList
           weatherData={weatherData}
+          serviceData={{ currentCityId, currentTabId, currentCardId }}
           handlerCardClick={handlerCardClick}
-          currentCardId={currentCardId}
           handlerTabClick={handlerTabClick}
-          currentTabId={currentTabId}
+          handlerChangeCity={handlerChangeCity}
         />
       </div>
     </div>

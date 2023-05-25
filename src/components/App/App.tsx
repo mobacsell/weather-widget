@@ -32,8 +32,7 @@ export function App() {
     <div className={styles.root}>
       <div className={styles.wrapper}>
         <DateInfo
-          data={weatherData[1].dateData}
-          currentCardId={currentCardId}
+          currentTimeData={weatherData[currentTabId].dateData[currentCardId]}
         />
         <DateList
           weatherData={weatherData}

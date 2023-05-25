@@ -4,25 +4,26 @@
   justify-content: center;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color: #054b74e7;
+  color: #3d3d3d;
   align-items: center;
   padding: 8px 0;
-  background-color: #f3ecec66;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s transform;
+  width: 52px;
+  transition: 0.3s background-color;
 }
 
 .input:checked + .label {
-  color: #b43a3a;
+  color: #c445ae;
   background-color: #e7e3e3;
-  transform: scale(1.15);
   transition: 0.3s transform;
 }
 
 .label:hover {
-  background-color: #e7e3e3dd;
-  transition: 0.3s background-color;
+  background-color: #e7e3e3;
+  color: #04767c;
+  transform: scale(1.1);
+  transition: 0.3s transform;
 }
 
 .temperature {

@@ -2,14 +2,13 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
   width: 550px;
-  height: 240px;
-  background-color: #65d9e9aa;
+  background-color: #bbbbbb3a;
   border-radius: 0 16px 16px 0;
-  box-shadow: 0px 0px 20px 5px #75757566;
-  padding: 10px;
+  box-shadow: 0px 0px 20px #383838a2;
+  padding: 20px;
 }
 
 .tabsList {
@@ -25,10 +24,9 @@
 .cardsList {
   display: flex;
   justify-content: center;
-  width: 450px;
-  gap: 2px;
   list-style-type: none;
   margin: 0;
-  margin-top: 4px;
   padding: 0;
+  background-color: #f3ecec66;
+  border-radius: 8px;
 }

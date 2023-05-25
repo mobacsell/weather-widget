@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./DateList.module.css";
 import { DateCard } from "./components/DateCard";
 import { PropsDateList } from "./types";
-import { MoreInfo } from "./components/MoreInfo";
 import { Tab } from "./components/Tab";
 import { CityLocation } from "./components/CityLocation";
 

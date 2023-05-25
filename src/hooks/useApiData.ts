@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { ItemFilterData } from "./types";
+import { formatFilterData } from "../utils/utils";
 
 export function useApiData() {
   const [coords] = useState({ lat: 56.1324, lon: 47.2025 });
   const [weatherData, setWeatherData] = useState<ItemFilterData[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     const getWheatherData = async () => {
@@ -14,34 +16,35 @@ export function useApiData() {
         );
         const data = await response.json();
         const filterData: ItemFilterData[] = [];
-        data.list.reduce(
-          (memoIndex: number, value: any, index: number): number => {
-            const currentDay = new Date(value.dt * 1000).getDay();
+        data.list.reduce((memoIndex: number, value: any): number => {
+          const currentDay = new Date(value.dt * 1000).getDay();
 
-            if (currentDay !== memoIndex) {
-              filterData.push({
-                dateId: filterData.length,
-                dayOfMonth: currentDay,
-                dateData: [],
-              });
-            }
-            filterData[filterData.length - 1].dateData.push({
-              timeId: filterData[filterData.length - 1].dateData.length,
-              timeStamp: value.dt,
-              temp: value.main.temp,
-              windSpeed: value.wind.speed,
-              humidity: value.main.humidity,
-              weatherStatus: value.weather[0].description,
-              icon: value.weather[0].icon,
-              pressure: value.main.pressure,
+          if (currentDay !== memoIndex) {
+            filterData.push({
+              dateId: filterData.length,
+              dayOfMonth: currentDay,
+              dateData: [],
             });
-            return currentDay;
-          },
-          0
-        );
+          }
+
+          filterData[filterData.length - 1].dateData.push({
+            timeId: filterData[filterData.length - 1].dateData.length,
+            timeStamp: value.dt,
+            temp: value.main.temp,
+            windSpeed: value.wind.speed,
+            humidity: value.main.humidity,
+            weatherStatus: value.weather[0].description,
+            icon: value.weather[0].icon,
+            pressure: value.main.pressure,
+          });
+          return currentDay;
+        }, 0);
+        formatFilterData(filterData);
         setWeatherData(filterData);
         setLoader(false);
-      } catch {}
+      } catch {
+        setError(true);
+      }
     };
     getWheatherData();
   }, [coords.lat, coords.lon]);
@@ -49,5 +52,6 @@ export function useApiData() {
   return {
     weatherData,
     loader,
+    error,
   };
 }

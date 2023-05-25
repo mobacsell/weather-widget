@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: center / cover no-repeat url("./assets/bground.png");
   user-select: none;
 }
 

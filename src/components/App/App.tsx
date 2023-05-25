@@ -4,9 +4,10 @@ import { DateInfo } from "./components/DateInfo";
 import { DateList } from "./components/DateList";
 import { useApiData } from "../../hooks/useApiData";
 import { Loader } from "./components/Loader";
+import { Error } from "./components/Error";
 
 export function App() {
-  const { weatherData, loader } = useApiData();
+  const { weatherData, loader, error } = useApiData();
 
   const [currentTabId, setCurrentTabId] = useState<number>(0);
   const [currentCardId, setCurrentCardId] = useState<number>(0);
@@ -22,6 +23,8 @@ export function App() {
 
   if (loader) {
     return <Loader />;
+  } else if (error) {
+    return <Error />;
   }
 
   return (

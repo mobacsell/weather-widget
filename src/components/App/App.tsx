@@ -10,7 +10,7 @@ export function App() {
   const [currentTabId, setCurrentTabId] = useState<number>(0);
   const [currentCardId, setCurrentCardId] = useState<number>(0);
 
-  const { weatherData, loader, error, handlerChangeCity, currentCityId } =
+  const { weatherData, loaded, error, handlerChangeCity, currentCityId } =
     useApiData();
 
   const handlerCardClick = (id: number) => {
@@ -22,25 +22,28 @@ export function App() {
     setCurrentCardId(0);
   };
 
-  if (loader) {
-    return <Loader />;
-  } else if (error) {
+  if (error) {
     return <Error />;
   }
 
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
-        <DateInfo
-          currentTimeData={weatherData[currentTabId].dateData[currentCardId]}
-        />
-        <DateList
-          weatherData={weatherData}
-          serviceData={{ currentCityId, currentTabId, currentCardId }}
-          handlerCardClick={handlerCardClick}
-          handlerTabClick={handlerTabClick}
-          handlerChangeCity={handlerChangeCity}
-        />
+        {!loaded && <Loader />}
+        {loaded && (
+          <DateInfo
+            currentTimeData={weatherData[currentTabId].dateData[currentCardId]}
+          />
+        )}
+        {loaded && (
+          <DateList
+            weatherData={weatherData}
+            serviceData={{ currentCityId, currentTabId, currentCardId }}
+            handlerCardClick={handlerCardClick}
+            handlerTabClick={handlerTabClick}
+            handlerChangeCity={handlerChangeCity}
+          />
+        )}
       </div>
     </div>
   );

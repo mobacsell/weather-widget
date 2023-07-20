@@ -6,14 +6,14 @@ import cities from "../cities.json";
 export function useApiData() {
   const [currentCityId, setCurrentCityId] = useState<number>(0);
   const [weatherData, setWeatherData] = useState<ItemFilterData[]>([]);
-  const [loader, setLoader] = useState<boolean>(true);
+  const [loaded, setLoaded] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
   const lat = cities[currentCityId].coords.lat;
   const lon = cities[currentCityId].coords.lon;
 
   function handlerChangeCity(cityId: number) {
-    setLoader(true);
+    setLoaded(false);
     setCurrentCityId(cityId);
   }
 
@@ -21,7 +21,7 @@ export function useApiData() {
   useEffect(() => {
     /**
    * Функция getWeatherData подтягивает данные с api.openweathermap.org - 40 точек каждый 3 часа и структурирует их в массиве по дням недели, начиная с текущего    
-   * состояние loader ставим на false после окончания формирования массива с данными.
+   * состояние loaded ставим на false после окончания формирования массива с данными.
    */
     const getWeatherData = async () => {
       try {
@@ -56,7 +56,7 @@ export function useApiData() {
 
         formatFilterData(filterData);
         setWeatherData(filterData);
-        setLoader(false);
+        setLoaded(true);
       } catch {
         setError(true);
       }
@@ -66,7 +66,7 @@ export function useApiData() {
 
   return {
     weatherData,
-    loader,
+    loaded,
     error,
     handlerChangeCity,
     currentCityId,

@@ -17,8 +17,13 @@ export function useApiData() {
     setCurrentCityId(cityId);
   }
 
+  
   useEffect(() => {
-    const getWheatherData = async () => {
+    /**
+   * Функция getWeatherData подтягивает данные с api.openweathermap.org - 40 точек каждый 3 часа и структурирует их в массиве по дням недели, начиная с текущего    
+   * состояние loader ставим на false после окончания формирования массива с данными.
+   */
+    const getWeatherData = async () => {
       try {
         const response = await fetch(
           `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=6b5f6866aee48a58db488348846a7e1f`
@@ -48,6 +53,7 @@ export function useApiData() {
           });
           return currentDay;
         }, 0);
+
         formatFilterData(filterData);
         setWeatherData(filterData);
         setLoader(false);
@@ -55,7 +61,7 @@ export function useApiData() {
         setError(true);
       }
     };
-    getWheatherData();
+    getWeatherData();
   }, [lat, lon]);
 
   return {

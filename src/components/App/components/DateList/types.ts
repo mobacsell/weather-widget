@@ -10,4 +10,5 @@ export interface PropsDateList {
   handlerCardClick: (id: number) => void;
   handlerTabClick: (id: number) => void;
   handlerChangeCity: (cityId: number) => void;
+  resetCurrentCardId: () => void;
 }

@@ -22,6 +22,10 @@ export function App() {
     setCurrentCardId(0);
   };
 
+  const resetCurrentCardId = () => {
+    setCurrentCardId(0);
+  };
+
   if (error) {
     return <Error />;
   }
@@ -42,6 +46,7 @@ export function App() {
             handlerCardClick={handlerCardClick}
             handlerTabClick={handlerTabClick}
             handlerChangeCity={handlerChangeCity}
+            resetCurrentCardId={resetCurrentCardId}
           />
         )}
       </div>

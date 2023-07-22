@@ -11,6 +11,7 @@ export function DateList({
   handlerTabClick,
   handlerCardClick,
   handlerChangeCity,
+  resetCurrentCardId,
 }: PropsDateList) {
   const { currentCityId, currentTabId, currentCardId } = serviceData;
   const currentDateDataList = weatherData[serviceData.currentTabId].dateData;
@@ -49,6 +50,7 @@ export function DateList({
       <CityLocation
         handlerChangeCity={handlerChangeCity}
         currentCityId={currentCityId}
+        resetCurrentCardId={resetCurrentCardId}
       />
     </div>
   );

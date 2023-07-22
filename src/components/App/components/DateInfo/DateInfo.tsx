@@ -35,7 +35,6 @@ export function DateInfo({
       <img
         src={`https://openweathermap.org/img/wn/${currentTimeData.icon}@2x.png`}
         alt="wheather icon"
-        width="100"
         className={styles.sectionMiddle}
       />
       <div className={styles.sectionBottom}>

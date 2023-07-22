@@ -43,6 +43,11 @@
   font-size: 14px;
 }
 
+.sectionMiddle {
+  width: 100px;
+  height: 100px;
+}
+
 .sectionBottom {
   width: 100%;
   display: flex;

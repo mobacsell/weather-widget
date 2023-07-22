@@ -22,7 +22,7 @@ export function DateCard({
         <img
           src={`https://openweathermap.org/img/wn/${data.icon}@2x.png`}
           alt="wheather icon"
-          width="50"
+          className={styles.icon}
         />
         <span>{formatTimestamp(data.timestamp)}</span>
         <span className={styles.temperature}>

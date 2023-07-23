@@ -30,3 +30,37 @@
   background-color: #f3ecec66;
   border-radius: 8px;
 }
+
+@media ((max-width: 1024px ) and (orientation: landscape)) or ((max-width: 992px ) and (orientation: portrait)) {
+  .root {
+    justify-content: space-between;
+    width: 400px;
+    height: 196px;
+    padding: 10px;
+    gap: 10px;
+  }
+}
+
+@media ((max-width: 768px) and (orientation: portrait)) {
+  .root {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 264px;
+    height: 336px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0px 0px 20px #383838a2;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .tabsList {
+    flex-direction: column;
+  }
+
+  .cardsList {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    background: none;
+  }
+}

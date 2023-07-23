@@ -41,3 +41,53 @@
 .temperature {
   font-weight: bold;
 }
+
+@media ((max-width: 1024px ) and (orientation: landscape)) or ((max-width: 992px ) and (orientation: portrait)) {
+  .label {
+    width: 46px;
+    font-size: 12px;
+    padding: 0px 0 8px 0px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .input:checked + .label {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .label {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+    font-size: 14px;
+    padding: 0;
+    width: 180px;
+    background: linear-gradient(to right, #f3ecec66, transparent);
+  }
+
+  .input:checked + .label {
+    transform: none;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    order: 2;
+  }
+
+  .temperature {
+    order: 3;
+    width: 40px;
+  }
+
+  .time {
+    order: 1;
+    width: 50px;
+  }
+}

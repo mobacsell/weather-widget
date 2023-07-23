@@ -24,7 +24,7 @@ export function DateCard({
           alt="wheather icon"
           className={styles.icon}
         />
-        <span>{formatTimestamp(data.timestamp)}</span>
+        <span className={styles.time}>{formatTimestamp(data.timestamp)}</span>
         <span className={styles.temperature}>
           {Math.round(data.temperature)}°C
         </span>

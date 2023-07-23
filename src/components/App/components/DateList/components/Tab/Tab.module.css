@@ -48,3 +48,17 @@
   height: 0px;
   margin: 0;
 }
+
+@media ((max-width: 1024px ) and (orientation: landscape)) or ((max-width: 992px) and (min-width: 769px) and (orientation: portrait)) {
+  .label {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .label {
+    width: 46px;
+    height: 46px;
+  }
+}

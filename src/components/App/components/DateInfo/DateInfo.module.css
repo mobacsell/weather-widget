@@ -62,3 +62,50 @@
 .status {
   font-size: 16px;
 }
+
+@media ((max-width: 1024px ) and (orientation: landscape)) or ((max-width: 992px ) and (min-width: 769px) and (orientation: portrait)) {
+  .root {
+    width: 220px;
+    height: 220px;
+    padding: 20px;
+    gap: 2px;
+  }
+
+  .weekday {
+    font-size: 22px;
+  }
+
+  .sectionTop {
+    gap: 8px;
+  }
+
+  .moreInfo {
+    font-size: 10px;
+  }
+
+  .sectionMiddle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .temperature {
+    font-size: 22px;
+  }
+
+  .status {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .root {
+    height: 250px;
+    gap: unset;
+    box-shadow: 0px 0px 20px 5px #383838a2;
+  }
+
+  .sectionMiddle {
+    width: 80px;
+    height: 80px;
+  }
+}

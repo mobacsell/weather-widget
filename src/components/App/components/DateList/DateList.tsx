@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./DateList.module.css";
 import { DateCard } from "./components/DateCard";
 import { PropsDateList } from "./types";
@@ -25,7 +24,7 @@ export function DateList({
               data={{ id: value.dateId, day: value.dayOfMonth }}
               handlerTabClick={handlerTabClick}
               currentTabId={currentTabId}
-              key={`${index}_tab}`}
+              key={index}
             />
           );
         })}

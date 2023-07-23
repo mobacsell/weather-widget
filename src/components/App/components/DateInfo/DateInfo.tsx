@@ -1,6 +1,6 @@
 import styles from "./DateInfo.module.css";
-import { ItemDataTime } from "../../../../hooks/types";
-import { formatDay, formatTimestamp } from "../../../../utils/utils";
+import { ItemDataTime } from "@hooks/types";
+import { formatDay, formatTimestamp } from "@utils/utils";
 
 export function DateInfo({
   currentTimeData,

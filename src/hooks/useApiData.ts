@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ItemFilterData } from "./types";
 import { formatFilterData } from "../utils/utils";
-import cities from "../cities.json";
+import cities from "@json/cities.json";
 
 export function useApiData() {
   const [currentCityId, setCurrentCityId] = useState<number>(0);

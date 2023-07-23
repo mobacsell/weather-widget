@@ -1,5 +1,5 @@
 import styles from "./CityLocation.module.css";
-import cities from "../../../../../../cities.json";
+import cities from "@json/cities.json";
 import { CityLocationProps } from "./types";
 
 export function CityLocation({

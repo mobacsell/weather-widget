@@ -2,7 +2,7 @@ import styles from "./App.module.css";
 import { useState } from "react";
 import { DateInfo } from "./components/DateInfo";
 import { DateList } from "./components/DateList";
-import { useApiData } from "../../hooks/useApiData";
+import { useApiData } from "@hooks/useApiData";
 import { Loader } from "./components/Loader";
 import { Error } from "./components/Error";
 

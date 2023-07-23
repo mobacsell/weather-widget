@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ItemFilterData } from "types/ItemFilterData";
-import { formatFilterData } from "../utils/utils";
+import { formatFilterData } from "@utils/formatFilterData";
 import cities from "@json/cities.json";
 
 export function useApiData() {

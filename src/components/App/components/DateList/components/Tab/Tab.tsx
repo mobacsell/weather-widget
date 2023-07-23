@@ -1,6 +1,6 @@
 import styles from "./Tab.module.css";
 import { TabProps } from "./types";
-import { formatDay } from "@utils/utils";
+import { formatDay } from "@utils/formatDay";
 
 export function Tab({ data, currentTabId, handlerTabClick }: TabProps) {
   return (

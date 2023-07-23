@@ -1,6 +1,6 @@
 import styles from "./DateCard.module.css";
 import { DateCardProps } from "./types";
-import { formatTimestamp } from "@utils/utils";
+import { formatTimestamp } from "@utils/formatTimeStamp";
 
 export function DateCard({
   data,

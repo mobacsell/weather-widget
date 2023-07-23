@@ -1,4 +1,4 @@
-export interface TabProps {
+export type TabProps = {
   data: {
     id: number;
     day: number;

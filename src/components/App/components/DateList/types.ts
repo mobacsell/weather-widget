@@ -1,6 +1,6 @@
 import { ItemFilterData } from "types/ItemFilterData";
 
-export interface PropsDateList {
+export type PropsDateList = {
   weatherData: ItemFilterData[];
   serviceData: {
     currentCityId: number;

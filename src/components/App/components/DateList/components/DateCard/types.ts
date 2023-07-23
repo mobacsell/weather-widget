@@ -1,4 +1,4 @@
-export interface DateCardProps {
+export type DateCardProps = {
   data: {
     id: number;
     icon: string;

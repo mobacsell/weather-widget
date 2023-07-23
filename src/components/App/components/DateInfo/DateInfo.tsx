@@ -2,6 +2,8 @@ import styles from "./DateInfo.module.css";
 import { ItemDataTime } from "@hooks/types";
 import { formatDay, formatTimestamp } from "@utils/utils";
 
+const pressureCoeff = 0.750062;
+
 export function DateInfo({
   currentTimeData,
 }: {
@@ -27,8 +29,8 @@ export function DateInfo({
             Влажность: {currentTimeData.humidity}%
           </div>
           <div className={styles.pressure}>
-            давление: {Math.round(currentTimeData.pressure * 0.750062)} мм рт.
-            ст.
+            давление: {Math.round(currentTimeData.pressure * pressureCoeff)} мм
+            рт. ст.
           </div>
         </div>
       </div>

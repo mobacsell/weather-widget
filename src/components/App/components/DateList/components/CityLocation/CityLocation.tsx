@@ -20,7 +20,7 @@ export function CityLocation({
         return (
           <option
             value={String(value.id)}
-            key={`city_${value.id}`}
+            key={value.id}
             className={styles.option}
           >
             {value.name}

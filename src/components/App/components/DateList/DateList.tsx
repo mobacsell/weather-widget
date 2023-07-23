@@ -41,7 +41,7 @@ export function DateList({
               }}
               currentCardId={currentCardId}
               handlerCardClick={handlerCardClick}
-              key={`${index}_dateCard`}
+              key={index}
             />
           );
         })}

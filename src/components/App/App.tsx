@@ -22,8 +22,9 @@ export function App() {
     setCurrentCardId(0);
   };
 
-  const resetCurrentCardId = () => {
+  const resetCurrentCardTabId = () => {
     setCurrentCardId(0);
+    setCurrentTabId(0);
   };
 
   if (error) {
@@ -46,7 +47,7 @@ export function App() {
             handlerCardClick={handlerCardClick}
             handlerTabClick={handlerTabClick}
             handlerChangeCity={handlerChangeCity}
-            resetCurrentCardId={resetCurrentCardId}
+            resetCurrentCardTabId={resetCurrentCardTabId}
           />
         )}
       </div>

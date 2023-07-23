@@ -5,14 +5,14 @@ import { CityLocationProps } from "./types";
 export function CityLocation({
   handlerChangeCity,
   currentCityId,
-  resetCurrentCardId,
+  resetCurrentCardTabId,
 }: CityLocationProps) {
   return (
     <select
       className={styles.select}
       onChange={(e) => {
         handlerChangeCity(Number(e.target.value));
-        resetCurrentCardId();
+        resetCurrentCardTabId();
       }}
       value={currentCityId}
     >

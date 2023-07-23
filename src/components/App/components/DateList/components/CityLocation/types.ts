@@ -1,5 +1,5 @@
 export type CityLocationProps = {
   handlerChangeCity: (cityId: number) => void;
-  resetCurrentCardId: () => void;
+  resetCurrentCardTabId: () => void;
   currentCityId: number;
 }

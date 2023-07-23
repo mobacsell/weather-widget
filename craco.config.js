@@ -9,6 +9,7 @@ module.exports = {
       "@hooks": resolvePath("./src/hooks/"),
       "@utils": resolvePath("./src/utils/"),
       "@json": resolvePath("./src/json/"),
+      "@types": resolvePath("./src/types/"),
     },
   },
 };

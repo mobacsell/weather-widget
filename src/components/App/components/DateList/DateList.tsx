@@ -3,6 +3,7 @@ import { DateCard } from "./components/DateCard";
 import { PropsDateList } from "./types";
 import { Tab } from "./components/Tab";
 import { CityLocation } from "./components/CityLocation";
+import { ItemFilterData } from "types/ItemFilterData";
 
 export function DateList({
   weatherData,

@@ -1,4 +1,4 @@
-import { ItemFilterData } from "../hooks/types";
+import { ItemFilterData } from "types/ItemFilterData";
 
 /**
  * Функция преобразует день недели из числовом представлении (метод getDay) в строковое ('Вс', 'Пн', 'Вт', 'Ср'...)

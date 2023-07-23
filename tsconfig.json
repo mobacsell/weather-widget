@@ -21,6 +21,7 @@
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
       "@json/*": ["json/*"],
+      "@types/*": ["types/*"],
     }
   },
   "include": ["src"]

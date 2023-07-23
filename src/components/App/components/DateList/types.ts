@@ -1,4 +1,4 @@
-import { ItemFilterData } from "@hooks/types";
+import { ItemFilterData } from "types/ItemFilterData";
 
 export interface PropsDateList {
   weatherData: ItemFilterData[];

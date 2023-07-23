@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ItemFilterData } from "./types";
+import { ItemFilterData } from "types/ItemFilterData";
 import { formatFilterData } from "../utils/utils";
 import cities from "@json/cities.json";
 

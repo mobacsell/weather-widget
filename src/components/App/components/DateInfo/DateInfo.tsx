@@ -1,5 +1,5 @@
 import styles from "./DateInfo.module.css";
-import { ItemDataTime } from "@hooks/types";
+import { ItemDataTime } from "types/ItemDataTime";
 import { formatDay, formatTimestamp } from "@utils/utils";
 
 const pressureCoeff = 0.750062;

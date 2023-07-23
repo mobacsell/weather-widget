@@ -17,12 +17,11 @@ export function useApiData() {
     setCurrentCityId(cityId);
   }
 
-  
   useEffect(() => {
     /**
-   * Функция getWeatherData подтягивает данные с api.openweathermap.org - 40 точек каждый 3 часа и структурирует их в массиве по дням недели, начиная с текущего    
-   * состояние loaded ставим на false после окончания формирования массива с данными.
-   */
+     * Функция getWeatherData подтягивает данные с api.openweathermap.org - 40 точек каждый 3 часа и структурирует их в массиве по дням недели, начиная с текущего
+     * состояние loaded ставим на false после окончания формирования массива с данными.
+     */
     const getWeatherData = async () => {
       try {
         const response = await fetch(
@@ -52,7 +51,7 @@ export function useApiData() {
             pressure: value.main.pressure,
           });
           return currentDay;
-        }, 0);
+        }, -1);
 
         formatFilterData(filterData);
         setWeatherData(filterData);
